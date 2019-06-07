@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 
+import "./styles.css";
 import useWebShare from "../src";
 
 function submitForm(target, actionFn) {
@@ -17,14 +18,24 @@ function App() {
   return (
     <main className="App">
       { !loading && isSupported ? (
-        <Fragment>
+        <div className="container">
+          <h1>Let's Share</h1>
           <form onSubmit={(event) => { event.preventDefault(); submitForm(event.target, share)}}>
-            <input type="text" placeholder="Title" name="title" />
-            <input type="text" placeholder="Text" name="text" />
-            <input type="text" placeholder="URL" name="url" />
+            <fieldset>
+              <label htmlFor="title">Title</label>
+              <input type="text" id="title" placeholder="Naval Ravikant – The Joe Rogan Experience" name="title" />
+            </fieldset>
+            <fieldset>
+              <label htmlFor="text">Text</label>
+              <input type="text" id="text" placeholder="Listen to this Podcast" name="text" />
+            </fieldset>
+            <fieldset>
+              <label htmlFor="url">URL</label>
+              <input type="text" id="url" placeholder="https://podcastnotes.org/2019/06/05/naval-joe-rogan/" name="url" />
+            </fieldset>
             <button type="submit">Share</button>
           </form>
-        </Fragment>
+        </div>
       ) : (
         <div style={{ textAlign: "center", paddingTop: "10%" }}>
           <p>

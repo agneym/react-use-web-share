@@ -1,0 +1,32 @@
+@font-face {
+        font-family: system;
+        font-style: normal;
+        font-weight: 300;
+        src: local(".SFNSText-Light"),
+          local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"),
+          local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"),
+          local("DroidSans"), local("Tahoma");
+      }
+
+      body {
+        font-family: "system";
+        margin: 0;
+      }
+
+      .App {
+        min-height: calc(100vh - 4rem);
+      }
+
+      .container {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .container input {
+        width: 100%;
+      }
+
+      .footer {
+        text-align: right;
+        padding: 0 1rem;
+      }
