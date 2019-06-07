@@ -1,6 +1,5 @@
 /**
  * Use native web share dialog when available
- * @param args Arguments to be passed to share
  * @param onSuccess function called on successfully sharing content
  * @param onError callback function called on error sharing content
  */

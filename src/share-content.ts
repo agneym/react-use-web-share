@@ -1,7 +1,13 @@
-function shareContent(config: IShareConfig, onSuccess: () => void, onError: () => void) {
-  return function () {
+import getUrl from "./get-url";
+
+function shareContent(onSuccess: () => void, onError: () => void) {
+  return function (config: Partial<IShareConfig>) {
+    const url = getUrl(config.url);
+    const title = config.title || document.title;
+    const text = config.text;
+
     navigator
-      .share(config)
+      .share({ text, title, url })
       .then(onSuccess)
       .catch(onError);
   };
