@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 import shareContent from "./share-content";
+import getUrl from './get-url';
 
 /**
  * Use native web share dialog when available
@@ -19,8 +20,7 @@ function useWebShare(args: Partial<IShareConfig> = {}, onSuccess = () => { }, on
 
   useEffect(
     () => {
-      const canonicalEl = document.querySelector('link[rel=canonical]') as HTMLLinkElement;
-      const url = canonicalEl ? canonicalEl.href : window.location.href;
+      const url = getUrl(args.url);
       const title = args.title || document.title;
       const text = args.text || undefined;
       config.current = { title, text, url };
