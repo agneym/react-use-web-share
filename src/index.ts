@@ -1,48 +1,43 @@
-import { useState, useEffect, RefObject } from "react";
+import { useState, useEffect, useRef } from 'react';
 
-import toggle from "./toggle";
+import shareContent from "./share-content";
 
 /**
- * React custom hook to use Picture-in-Picture functionality
- * @param videoRef Reference to the video element
- *
- * @example
- * const { loading, error, toggle } = usePip(videoRef);
+ * Use native web share dialog when available
+ * @param args Arguments to be passed to share
+ * @param onSuccess function called on successfully sharing content
+ * @param onError callback function called on error sharing content
  */
-function usePip(videoRef: RefObject<HTMLVideoElement>) {
+function useWebShare(args = {}, onSuccess = () => { }, onError = () => { }) {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [isSupported, setSupport] = useState(false);
+  const config = useRef({
+    url: '',
+  });
 
   useEffect(
-    function checkSupport() {
-      const video = videoRef.current;
-      if (!video) {
-        return;
-      }
-      if (!document.pictureInPictureEnabled || video.disablePictureInPicture) {
-        setError("NotSupportedError");
-        setLoading(false);
-        return;
-      }
-      if (video.readyState === 0) {
-        video.addEventListener("loadedmetadata", checkSupport);
-        video.addEventListener("emptied", checkSupport);
-        return;
+    () => {
+      const canonicalEl = document.querySelector('link[rel=canonical]');
+      const url = canonicalEl ? canonicalEl.href : window.location.href;
+      const title = args.title || window.title;
+      const text = args.text || undefined;
+      config.current = { title, text, url };
+
+      if (!!navigator.share) {
+        setSupport(true);
+      } else {
+        setSupport(false);
       }
       setLoading(false);
-      return () => {
-        video.removeEventListener("loadeddata", checkSupport);
-        video.removeEventListener("emptied", checkSupport);
-      };
     },
-    [videoRef]
+    [args, onSuccess, onError]
   );
-
   return {
-    error,
     loading,
-    toggle: toggle(videoRef, setError),
+    isSupported,
+    config: config.current,
+    share: shareContent(config.current, onSuccess, onError),
   };
 }
 
-export default usePip;
+export default useWebShare;
