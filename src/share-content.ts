@@ -1,4 +1,4 @@
-function shareContent(config, onSuccess, onError) {
+function shareContent(config: IShareConfig, onSuccess: () => void, onError: () => void) {
   return function () {
     navigator
       .share(config)

@@ -1,3 +1,9 @@
+interface IShareConfig {
+  title: string;
+  text?: string;
+  url: string;
+}
+
 interface Navigator {
-  share: () => Promise<void>;
+  share: (config: IShareConfig) => Promise<void>;
 }

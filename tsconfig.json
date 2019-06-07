@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "lib": ["es2015", "dom"],
+    "lib": ["es2017", "dom"],
     "noEmitOnError": true,
     "strict": true,
     "target": "es5"

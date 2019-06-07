@@ -8,18 +8,20 @@ import shareContent from "./share-content";
  * @param onSuccess function called on successfully sharing content
  * @param onError callback function called on error sharing content
  */
-function useWebShare(args = {}, onSuccess = () => { }, onError = () => { }) {
+function useWebShare(args: Partial<IShareConfig> = {}, onSuccess = () => { }, onError = () => { }) {
   const [loading, setLoading] = useState(true);
   const [isSupported, setSupport] = useState(false);
-  const config = useRef({
+  const config = useRef<IShareConfig>({
     url: '',
+    title: '',
+    text: '',
   });
 
   useEffect(
     () => {
-      const canonicalEl = document.querySelector('link[rel=canonical]');
+      const canonicalEl = document.querySelector('link[rel=canonical]') as HTMLLinkElement;
       const url = canonicalEl ? canonicalEl.href : window.location.href;
-      const title = args.title || window.title;
+      const title = args.title || document.title;
       const text = args.text || undefined;
       config.current = { title, text, url };
 
@@ -32,6 +34,7 @@ function useWebShare(args = {}, onSuccess = () => { }, onError = () => { }) {
     },
     [args, onSuccess, onError]
   );
+
   return {
     loading,
     isSupported,
