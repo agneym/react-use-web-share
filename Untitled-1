@@ -1,4 +1,0 @@
-Name, Type, Description
-loading, boolean, Loading state
-isSupported, boolean, Detects whether the feature is supported in user's browser. Can be used to show the fallback
-share, function, can be called to trigger the native share popup
