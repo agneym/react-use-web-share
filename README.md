@@ -6,7 +6,7 @@
 <a href="https://prettier.io">
   <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
 </a>
-<a>
+<a href="https://travis-ci.org/BoyWithSilverWings/react-use-web-share">
   <img src="https://travis-ci.org/BoyWithSilverWings/react-use-web-share.svg?branch=master">
 </a>
 
@@ -20,7 +20,13 @@ npm install react-use-web-share
 
 ```javascript
 const { loading, isSupported, share } = useWebShare();
+
+function onClick() {
+  share();
+}
 ```
+
+See [example](https://github.com/BoyWithSilverWings/react-use-web-share/tree/master/example) directory for full example.
 
 ### Parameters
 
