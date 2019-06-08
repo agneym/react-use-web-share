@@ -18,8 +18,30 @@ const { loading, isSupported, share } = useWebShare();
 
 ### Parameters
 
+Parameter| description| default| required
+:-----:|:-----:|:-----:|:-----:
+onSuccess| called on successfully sharing the content| () => {}| false
+onError| called when caught error from navigator share content| () => {}| false
+
 ### Returns
 
+Name| Type| Description
+:-----:|:-----:|:-----:
+loading| boolean| Loading state
+isSupported| boolean| Detects whether the feature is supported in user's browser. Can be used to show the fallback
+share| function| can be called to trigger the native share popup
+
+### `share`
+
+This is the function that triggers the native share dialog in browser.
+
+This takes an object as argument. 
+
+Name| description| default
+:-----:|:-----:|:-----:
+title| title of shared item| `document.title`
+text| text of shared item|  
+url| url to be shared| canonical url if present, otherwise current url
 
 ## Contributing
 
