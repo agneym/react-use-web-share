@@ -23,37 +23,42 @@
     "eslint": "eslint ./src/**/*.{ts,tsx}"
   },
   "description": "A custom react hook for triggering the native web share dialog",
-  "repository": "git@github.com:BoyWithSilverWings/react-use-web-share.git",
+  "repository": "github:BoyWithSilverWings/react-use-web-share",
+  "homepage": "https://boywithsilverwings.github.io/react-use-web-share/",
   "author": "Boy with Silver Wings <agney@outlook.in>",
+  "bugs": {
+    "url": "https://github.com/BoyWithSilverWings/react-use-web-share/issues"
+  },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^24.0.9",
-    "@types/react": "16.8.19",
-    "@types/react-dom": "16.8.4",
-    "@typescript-eslint/eslint-plugin": "^1.4.2",
-    "@typescript-eslint/parser": "^1.4.2",
-    "eslint": "^5.15.1",
-    "eslint-config-prettier": "4.3.0",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.5.1",
-    "gh-pages": "^2.0.1",
-    "husky": "^2.3.0",
-    "jest": "24.3.1",
+    "@types/jest": "^24.0.21",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.3",
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "6.5.0",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "gh-pages": "^2.1.1",
+    "husky": "^3.0.9",
+    "jest": "24.9.0",
     "jest-fetch-mock": "2.1.2",
-    "microbundle": "0.11.0",
-    "parcel-bundler": "1.12.3",
-    "prettier": "1.17.1",
-    "pretty-quick": "^1.11.0",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-testing-library": "7.0.1",
-    "rimraf": "^2.6.3",
-    "ts-jest": "24.0.2"
+    "microbundle": "^0.11.0",
+    "parcel-bundler": "1.12.4",
+    "prettier": "1.18.2",
+    "pretty-quick": "^2.0.0",
+    "react": "16.11.0",
+    "react-dom": "16.11.0",
+    "rimraf": "^3.0.0",
+    "ts-jest": "24.1.0"
   },
   "peerDependencies": {
     "react": ">= 16.8.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@testing-library/react": "^9.3.1"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"

@@ -12,6 +12,8 @@
 
 A custom react hook for triggering the native [web share](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share) dialog in [supported browsers](https://caniuse.com/#feat=web-share)
 
+[Demo](https://boywithsilverwings.github.io/react-use-web-share)
+
 ## Usage
 
 ```
